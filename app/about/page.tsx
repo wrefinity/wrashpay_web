@@ -1,8 +1,11 @@
 import Image from 'next/image';
-import { FaLock, FaLightbulb, FaUsers, FaHandshake, FaSyncAlt, FaRocket, FaPhone, FaEnvelope, FaLinkedin } from 'react-icons/fa';
+import {AboutData} from '../../lib/constants'
+import { FaPhone, FaEnvelope, FaLinkedin } from 'react-icons/fa';
+
 
 export default function About() {
   return (
+    <>
     <div className="pt-24 bg-gray-900 text-gray-200">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-gray-900 to-primary/90 py-16 md:py-24 text-white">
@@ -56,46 +59,16 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <FaLock className="text-primary text-3xl" />,
-                title: "Security",
-                desc: "We prioritize the security of your transactions and personal information above all else, employing bank-grade security measures."
-              },
-              {
-                icon: <FaLightbulb className="text-primary text-3xl" />,
-                title: "Innovation",
-                desc: "We constantly strive to improve our services, embracing new technologies to deliver the best payment experience."
-              },
-              {
-                icon: <FaUsers className="text-primary text-3xl" />,
-                title: "Customer-Centric",
-                desc: "Our customers are at the heart of everything we do. We listen to your feedback and continuously improve to meet your needs."
-              },
-              {
-                icon: <FaHandshake className="text-primary text-3xl" />,
-                title: "Integrity",
-                desc: "We operate with honesty and transparency in all our dealings with customers, partners, and stakeholders."
-              },
-              {
-                icon: <FaSyncAlt className="text-primary text-3xl" />,
-                title: "Reliability",
-                desc: "We're committed to providing a reliable service that you can count on for all your payment needs, anytime."
-              },
-              {
-                icon: <FaRocket className="text-primary text-3xl" />,
-                title: "Accessibility",
-                desc: "We believe in making digital payments accessible to everyone, regardless of technical expertise or location."
-              }
-            ].map(({ icon, title, desc }) => (
-              <div key={title} className="bg-gray-700 rounded-lg p-6 shadow-sm">
-                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
-                  {icon}
-                </div>
-                <h3 className="text-xl font-semibold mb-3 text-white text-center">{title}</h3>
-                <p className="text-gray-300 text-center">{desc}</p>
+            {Array.from(AboutData).map((item, idx) => {
+              const Icon = item.icon
+              return (
+              <div key={idx} className="bg-gray-700 rounded-lg p-6 shadow-sm">
+                <Icon className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto"/>
+                <h3 className="text-xl font-semibold mb-3 text-white text-center">{item.title}</h3>
+                <p className="text-gray-300 text-center">{item.desc}</p>
               </div>
-            ))}
+            )
+          })}
           </div>
         </div>
       </section>
@@ -162,5 +135,7 @@ export default function About() {
         </div>
       </section>
     </div>
+
+    </>
   );
 }

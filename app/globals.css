@@ -213,7 +213,7 @@ html {
 }
 
 /* Mobile Optimizations */
-@media (max-width: 640px) {
+@media (max-width: 400px) {
   .container-custom {
     @apply px-4;
   }

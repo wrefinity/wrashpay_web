@@ -1,5 +1,5 @@
-import { FaLock, FaLightbulb, FaUsers, FaHandshake, FaSyncAlt, FaRocket, FaPhone, FaEnvelope, FaLinkedin } from 'react-icons/fa';
-
+import { FaLock, FaLightbulb, FaUsers, FaHandshake, FaSyncAlt, FaRocket } from 'react-icons/fa';
+import { IconType } from "react-icons";
 
 export const SITE_NAME = 'Wrashpay';
 
@@ -110,38 +110,44 @@ export const BUSINESS_SOLUTIONS = [
   },
 ];
 
-export const AboutData  =   [
+interface AboutItem {
+  icon: IconType;
+  title: string;
+  desc: string;
+}
+
+export const AboutData: AboutItem[] = [
   {
-    icon: <FaLock className="text-primary text-3xl" />,
+    icon: FaLock,
     title: "Security",
     desc: "We prioritize the security of your transactions and personal information above all else, employing bank-grade security measures."
   },
   {
-    icon: <FaLightbulb className="text-primary text-3xl" />,
+    icon: FaLightbulb,
     title: "Innovation",
     desc: "We constantly strive to improve our services, embracing new technologies to deliver the best payment experience."
   },
   {
-    icon: <FaUsers className="text-primary text-3xl" />,
+    icon: FaUsers,
     title: "Customer-Centric",
     desc: "Our customers are at the heart of everything we do. We listen to your feedback and continuously improve to meet your needs."
   },
   {
-    icon: <FaHandshake className="text-primary text-3xl" />,
+    icon: FaHandshake,
     title: "Integrity",
     desc: "We operate with honesty and transparency in all our dealings with customers, partners, and stakeholders."
   },
   {
-    icon: <FaSyncAlt className="text-primary text-3xl" />,
+    icon: FaSyncAlt,
     title: "Reliability",
     desc: "We're committed to providing a reliable service that you can count on for all your payment needs, anytime."
   },
   {
-    icon: <FaRocket className="text-primary text-3xl" />,
+    icon: FaRocket,
     title: "Accessibility",
     desc: "We believe in making digital payments accessible to everyone, regardless of technical expertise or location."
   }
-]
+];
 
 export const BLOG_POSTS = [
   {
