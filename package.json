@@ -8,6 +8,11 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "pre-commit": [
+    "ts.check",
+    "out",
+    "add-build"
+  ],
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
     "@next/swc-wasm-nodejs": "13.5.1",
