@@ -7,10 +7,8 @@ import { buttonHover } from '@/lib/animations';
 
 const DownloadSection = () => {
   return (
-    <section 
-      className="section-padding bg-gradient-to-r from-gray-900 to-primary/90 text-white"
-      id="download"
-    >
+    <section className="section-padding bg-gradient-to-r from-gray-900 to-primary/90 text-white overflow-hidden" id="download">
+
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}
@@ -85,50 +83,48 @@ const DownloadSection = () => {
           </div>
 
           {/* Right Column - App Mockups */}
-          <FadeIn delay={0.2}>
-            <div className="relative h-[500px]">
-              {/* Phone Mockups */}
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 z-10">
-                <div className="relative">
-                  {/* Main Phone */}
-                  <div className="w-[220px] h-[450px] bg-white rounded-[36px] shadow-2xl overflow-hidden border-8 border-gray-800">
-                    <Image
-                      src="https://images.pexels.com/photos/8369650/pexels-photo-8369650.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                      alt="Wrashpay App Screenshot"
-                      width={280}
-                      height={580}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  
-                  {/* Secondary Phone - Left */}
-                  <div className="absolute -left-24 top-20 w-[180px] h-[370px] bg-white rounded-[30px] shadow-xl overflow-hidden border-8 border-gray-800 opacity-75 rotate-[-15deg]">
-                    <Image
-                      src="https://images.pexels.com/photos/8370722/pexels-photo-8370722.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                      alt="Wrashpay App Screenshot"
-                      width={280}
-                      height={580}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  
-                  {/* Secondary Phone - Right */}
-                  <div className="absolute -right-24 top-20 w-[180px] h-[370px] bg-white rounded-[30px] shadow-xl overflow-hidden border-8 border-gray-800 opacity-75 rotate-[15deg]">
-                    <Image
-                      src="https://images.pexels.com/photos/8370784/pexels-photo-8370784.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                      alt="Wrashpay App Screenshot"
-                      width={280}
-                      height={580}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-              
-              {/* Background Elements */}
-              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-[400px] h-[100px] bg-black/30 filter blur-xl rounded-full"></div>
-            </div>
-          </FadeIn>
+          {/* Right Column - App Mockups */}
+<FadeIn delay={0.2}>
+  <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[550px] xl:h-[600px] flex justify-center items-end overflow-hidden">
+    {/* Phone Mockups Container */}
+    <div className="relative w-full max-w-[500px] h-full">
+      
+      {/* Center Phone */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 w-[50%] max-w-[220px] aspect-[9/18] bg-white rounded-[36px] shadow-2xl overflow-hidden border-8 border-gray-800">
+        <Image
+          src="https://images.pexels.com/photos/8369650/pexels-photo-8369650.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt="Wrashpay App Screenshot"
+          fill
+          className="object-cover"
+        />
+      </div>
+
+      {/* Left Phone */}
+      <div className="absolute top-[20%] left-[5%] w-[40%] max-w-[180px] aspect-[9/18] bg-white rounded-[30px] shadow-xl overflow-hidden border-8 border-gray-800 opacity-75 rotate-[-15deg]">
+        <Image
+          src="https://images.pexels.com/photos/8370722/pexels-photo-8370722.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt="Wrashpay App Screenshot"
+          fill
+          className="object-cover"
+        />
+      </div>
+
+      {/* Right Phone */}
+      <div className="absolute top-[20%] right-[5%] w-[40%] max-w-[180px] aspect-[9/18] bg-white rounded-[30px] shadow-xl overflow-hidden border-8 border-gray-800 opacity-75 rotate-[15deg]">
+        <Image
+          src="https://images.pexels.com/photos/8370784/pexels-photo-8370784.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt="Wrashpay App Screenshot"
+          fill
+          className="object-cover"
+        />
+      </div>
+    </div>
+
+    {/* Background Blur */}
+    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[70%] h-[60px] bg-black/30 filter blur-xl rounded-full z-0"></div>
+  </div>
+</FadeIn>
+
         </div>
       </div>
     </section>

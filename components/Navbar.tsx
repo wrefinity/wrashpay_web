@@ -54,13 +54,13 @@ const Navbar = () => {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-sm border-b',
         isScrolled
-          ? 'bg-background/95 dark:bg-background/95 shadow-md border-border'
+          ? 'bg-background/95 dark:bg-gray-900 shadow-md border-border'
           : 'bg-transparent border-transparent'
       )}
     >
-      <div className="container-custom">
+      <div className="mx-auto w-full max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-4">
-          {/* Logo with scale animation on hover */}
+          {/* Logo */}
           <Link href="/" className="flex items-center">
             <motion.div
               whileHover={{ scale: 1.1 }}
@@ -72,7 +72,7 @@ const Navbar = () => {
                 alt="Wrashpay Logo"
                 width={150}
                 height={40}
-                className="h-10 w-auto"
+                className="h-8 sm:h-10 w-auto"
                 priority
               />
             </motion.div>
@@ -94,7 +94,7 @@ const Navbar = () => {
             ))}
           </nav>
 
-          {/* Theme Toggle and Download Button - Desktop */}
+          {/* Desktop Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <motion.button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
@@ -113,14 +113,14 @@ const Navbar = () => {
             <motion.a
               href="#"
               whileHover={buttonHover}
-              className="btn-primary flex items-center space-x-2"
+              className="btn-primary flex items-center space-x-2 py-2 px-4 text-sm"
             >
               <Download size={18} />
               <span>Download App</span>
             </motion.a>
           </div>
 
-          {/* Mobile Menu Button + Theme Toggle */}
+          {/* Mobile Menu Toggle + Theme */}
           <div className="md:hidden flex items-center space-x-2">
             <motion.button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
@@ -137,9 +137,11 @@ const Navbar = () => {
               )}
             </motion.button>
             <button
-              className="p-2 focus:outline-none text-foreground transition-transform duration-300"
               onClick={toggleMenu}
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
+              className="p-2 focus:outline-none text-foreground transition-transform duration-300"
             >
               <AnimatePresence initial={false}>
                 {isOpen ? (
@@ -169,20 +171,20 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Navigation */}
       <AnimatePresence>
         {isOpen && (
           <FadeIn
-            className="md:hidden bg-background border-t border-border py-4"
+            className="md:hidden bg-background border-t border-border py-4 max-h-[90vh] overflow-y-auto"
             duration={0.3}
           >
-            <div className="container-custom">
+            <div id="mobile-menu" className="mx-auto w-full max-w-screen-xl px-4 sm:px-6 lg:px-8">
               <nav className="flex flex-col space-y-4">
                 {MAIN_NAVIGATION.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="text-foreground hover:text-primary py-2 transition-colors facebook-card"
+                    className="text-foreground hover:text-primary py-2 transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.name}
@@ -191,7 +193,7 @@ const Navbar = () => {
                 <motion.a
                   href="#"
                   whileHover={buttonHover}
-                  className="btn-primary flex items-center justify-center space-x-2 w-full mt-4"
+                  className="btn-primary flex items-center justify-center space-x-2 w-full py-2 px-4 text-sm mt-4"
                 >
                   <Download size={18} />
                   <span>Download App</span>

@@ -9,7 +9,8 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Wrashpay - Seamless Digital Payments in Nigeria',
-  description: 'Pay bills, buy airtime, data subscriptions, TV subscriptions and more with Wrashpay. Your one-stop solution for all digital payments in Nigeria.',
+  description:
+    'Pay bills, buy airtime, data subscriptions, TV subscriptions and more with Wrashpay. Your one-stop solution for all digital payments in Nigeria.',
 };
 
 export default function RootLayout({
@@ -19,16 +20,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased`}>
-        <ThemeProvider 
-          attribute="class" 
-          defaultTheme="system"  // Changed to system for better UX
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
+      <body className={`${inter.className} antialiased bg-background text-foreground`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
           enableSystem
-          disableTransitionOnChange={false}  // Enable smooth transitions
+          disableTransitionOnChange={false}
         >
-          <div className="flex flex-col min-h-screen">
+          <div className="flex flex-col min-h-screen w-full">
             <Navbar />
-            <main className="flex-grow">{children}</main>
+            <main className="flex-grow w-full px-4 sm:px-6 md:px-8">{children}</main>
             <Footer />
           </div>
         </ThemeProvider>

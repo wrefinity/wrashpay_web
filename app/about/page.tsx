@@ -6,9 +6,10 @@ import { FaPhone, FaEnvelope, FaLinkedin } from 'react-icons/fa';
 export default function About() {
   return (
     <>
-    <div className="pt-24 bg-gray-900 text-gray-200">
+    <div className="pt-24 bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-200">
+
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-gray-900 to-primary/90 py-16 md:py-24 text-white">
+     <section className="bg-gradient-to-r from-gray-900 to-primary/90 text-white py-16 md:py-24">
         <div className="container-custom text-center">
           <h1 className="heading-large mb-6">About Wrashpay</h1>
           <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
@@ -18,18 +19,18 @@ export default function About() {
       </section>
 
       {/* Our Story Section */}
-      <section className="section-padding bg-gray-800">
+      <section className="section-padding bg-gray-100 dark:bg-gray-800">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="heading-medium text-white mb-6">Our Story</h2>
-              <p className="text-gray-300 mb-4">
+              <h2 className="heading-medium text-gray-900 dark:text-white mb-6">Our Story</h2>
+             <p className="text-gray-700 dark:text-gray-300 mb-4">
                 Wrashpay was founded in 2021 with a simple vision: to make digital payments accessible to everyone in Nigeria. We observed the challenges people faced with existing payment solutions and set out to create a better alternative.
               </p>
-              <p className="text-gray-300 mb-4">
+             <p className="text-gray-700 dark:text-gray-300 mb-4">
                 What started as a small team with big dreams has now grown into a trusted payment platform serving thousands of users across Nigeria. Our journey has been driven by a commitment to innovation, reliability, and customer satisfaction.
               </p>
-              <p className="text-gray-300">
+              <p className="text-gray-700 dark:text-gray-300 mb-4">
                 Today, Wrashpay is more than just a payment app – it's a comprehensive solution for all digital payment needs, from airtime and data to utility bills and TV subscriptions.
               </p>
             </div>
@@ -49,11 +50,11 @@ export default function About() {
       </section>
 
       {/* Values Section */}
-      <section className="section-padding bg-gray-800">
+      <section className="section-padding bg-gray-100 dark:bg-gray-800">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="heading-medium text-white mb-4">Our Core Values</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
+            <h2 className="heading-medium text-gray-900 dark:text-white mb-4">Our Core Values</h2>
+            <p className="text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
               These principles guide everything we do at Wrashpay, from product development to customer service.
             </p>
           </div>
@@ -62,10 +63,10 @@ export default function About() {
             {Array.from(AboutData).map((item, idx) => {
               const Icon = item.icon
               return (
-              <div key={idx} className="bg-gray-700 rounded-lg p-6 shadow-sm">
+              <div key={idx} className="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-sm">
                 <Icon className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto"/>
-                <h3 className="text-xl font-semibold mb-3 text-white text-center">{item.title}</h3>
-                <p className="text-gray-300 text-center">{item.desc}</p>
+                 <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white text-center">{item.title}</h3>
+                    <p className="text-gray-700 dark:text-gray-300 text-center">{item.desc}</p>
               </div>
             )
           })}
@@ -74,11 +75,11 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section className="section-padding bg-gray-800">
+      <section className="section-padding bg-gray-100 dark:bg-gray-800">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="heading-medium text-white mb-4">Meet Our Team</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
+            <h2 className="heading-medium text-gray-900 dark:text-white mb-4">Meet Our Team</h2>
+            <p className="text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
               The passionate individuals behind Wrashpay who work tirelessly to deliver the best payment experience.
             </p>
           </div>
@@ -116,16 +117,16 @@ export default function About() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-white">{name}</h3>
-                <p className="text-gray-300 mb-2">{role}</p>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{name}</h3>
+                <p className="text-gray-700 dark:text-gray-300 mb-2">{role}</p>
                 <div className="flex justify-center space-x-3">
-                  <a href="#" className="text-gray-400 hover:text-primary">
+                  <a href="#" className="text-gray-500 hover:text-primary dark:text-gray-400">
                     <FaPhone className="text-xl" />
                   </a>
-                  <a href="#" className="text-gray-400 hover:text-primary">
+                  <a href="#" className="text-gray-500 hover:text-primary dark:text-gray-400">
                     <FaEnvelope className="text-xl" />
                   </a>
-                  <a href="#" className="text-gray-400 hover:text-primary">
+                  <a href="#" className="text-gray-500 hover:text-primary dark:text-gray-400">
                     <FaLinkedin className="text-xl" />
                   </a>
                 </div>
