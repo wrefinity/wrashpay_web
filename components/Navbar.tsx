@@ -12,13 +12,17 @@ import { buttonHover } from '@/lib/animations';
 import { useTheme } from 'next-themes';
 
 const navbarVariants = {
-  hidden: { y: -30, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { duration: 0.4, ease: 'easeOut' } },
+  hidden: { y: -20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.25, ease: 'easeOut' },
+  },
 };
 
 const iconRotate = {
   initial: { rotate: 0 },
-  animate: { rotate: 360, transition: { duration: 0.5 } },
+  animate: { rotate: 360, transition: { duration: 0.35 } },
 };
 
 const Navbar = () => {
@@ -42,17 +46,13 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  if (!mounted) {
-    return null;
-  }
-
   return (
     <motion.header
       variants={navbarVariants}
       initial="hidden"
       animate="visible"
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-sm border-b',
+        'transform-gpu fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-sm border-b',
         isScrolled
           ? 'bg-background/95 dark:bg-gray-900 shadow-md border-border'
           : 'bg-transparent border-transparent'
@@ -62,31 +62,30 @@ const Navbar = () => {
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-  <motion.div
-    whileHover={{ scale: 1.1 }}
-    transition={{ duration: 0.4 }}
-    className="relative w-[150px] h-[40px]"
-  >
-    {theme === 'dark' ? (
-      <Image
-        src="/LOGO (2).png" // <-- Add your dark logo here
-        alt="Wrashpay Dark Logo"
-        fill
-        className="object-contain"
-        priority
-      />
-    ) : (
-      <Image
-        src="/logo (1).png" // <-- Existing light logo
-        alt="Wrashpay Logo"
-        fill
-        className="object-contain"
-        priority
-      />
-    )}
-  </motion.div>
-</Link>
-
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+              className="relative w-[150px] h-[40px]"
+            >
+              {mounted && theme === 'dark' ? (
+                <Image
+                  src="/LOGO (2).png"
+                  alt="Wrashpay Dark Logo"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              ) : (
+                <Image
+                  src="/logo (1).png"
+                  alt="Wrashpay Logo"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              )}
+            </motion.div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
@@ -106,20 +105,20 @@ const Navbar = () => {
 
           {/* Desktop Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <motion.button
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="p-2 rounded-full hover:bg-accent transition-colors"
-              key={theme}
-              initial="initial"
-              animate="animate"
-              variants={iconRotate}
-            >
-              {theme === 'dark' ? (
-                <Sun className="h-5 w-5 text-foreground" />
-              ) : (
-                <Moon className="h-5 w-5 text-foreground" />
-              )}
-            </motion.button>
+            {mounted && (
+              <motion.button
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                className="p-2 rounded-full hover:bg-accent transition-colors"
+                variants={iconRotate}
+                whileTap={{ scale: 0.9 }}
+              >
+                {theme === 'dark' ? (
+                  <Sun className="h-5 w-5 text-foreground" />
+                ) : (
+                  <Moon className="h-5 w-5 text-foreground" />
+                )}
+              </motion.button>
+            )}
             <motion.a
               href="#"
               whileHover={buttonHover}
@@ -130,37 +129,37 @@ const Navbar = () => {
             </motion.a>
           </div>
 
-          {/* Mobile Menu Toggle + Theme */}
+          {/* Mobile Toggle + Theme */}
           <div className="md:hidden flex items-center space-x-2">
-            <motion.button
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="p-2 rounded-full hover:bg-accent transition-colors"
-              key={theme + '-mobile'}
-              initial="initial"
-              animate="animate"
-              variants={iconRotate}
-            >
-              {theme === 'dark' ? (
-                <Sun className="h-5 w-5 text-foreground" />
-              ) : (
-                <Moon className="h-5 w-5 text-foreground" />
-              )}
-            </motion.button>
+            {mounted && (
+              <motion.button
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                className="p-2 rounded-full hover:bg-accent transition-colors"
+                variants={iconRotate}
+                whileTap={{ scale: 0.9 }}
+              >
+                {theme === 'dark' ? (
+                  <Sun className="h-5 w-5 text-foreground" />
+                ) : (
+                  <Moon className="h-5 w-5 text-foreground" />
+                )}
+              </motion.button>
+            )}
             <button
               onClick={toggleMenu}
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
-              className="p-2 focus:outline-none text-foreground transition-transform duration-300"
+              className="p-2 focus:outline-none text-foreground transition-transform duration-200"
             >
-              <AnimatePresence initial={false}>
+              <AnimatePresence initial={false} mode="wait">
                 {isOpen ? (
                   <motion.div
                     key="close"
                     initial={{ rotate: 90, opacity: 0 }}
                     animate={{ rotate: 0, opacity: 1 }}
                     exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.2 }}
                   >
                     <X size={24} />
                   </motion.div>
@@ -170,7 +169,7 @@ const Navbar = () => {
                     initial={{ rotate: -90, opacity: 0 }}
                     animate={{ rotate: 0, opacity: 1 }}
                     exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.2 }}
                   >
                     <Menu size={24} />
                   </motion.div>
@@ -186,7 +185,7 @@ const Navbar = () => {
         {isOpen && (
           <FadeIn
             className="md:hidden bg-background border-t border-border py-4 max-h-[90vh] overflow-y-auto"
-            duration={0.3}
+            duration={0.25}
           >
             <div id="mobile-menu" className="mx-auto w-full max-w-screen-xl px-4 sm:px-6 lg:px-8">
               <nav className="flex flex-col space-y-4">
