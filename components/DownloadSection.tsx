@@ -92,7 +92,7 @@ const DownloadSection = () => {
       {/* Center Phone */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 w-[50%] max-w-[220px] aspect-[9/18] bg-white rounded-[36px] shadow-2xl overflow-hidden border-8 border-gray-800">
         <Image
-          src="https://images.pexels.com/photos/8369650/pexels-photo-8369650.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src="/Home data 1.png"
           alt="Wrashpay App Screenshot"
           fill
           className="object-cover"
@@ -102,7 +102,7 @@ const DownloadSection = () => {
       {/* Left Phone */}
       <div className="absolute top-[20%] left-[5%] w-[40%] max-w-[180px] aspect-[9/18] bg-white rounded-[30px] shadow-xl overflow-hidden border-8 border-gray-800 opacity-75 rotate-[-15deg]">
         <Image
-          src="https://images.pexels.com/photos/8370722/pexels-photo-8370722.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src="/PIN LOGIN.png"
           alt="Wrashpay App Screenshot"
           fill
           className="object-cover"
@@ -112,7 +112,7 @@ const DownloadSection = () => {
       {/* Right Phone */}
       <div className="absolute top-[20%] right-[5%] w-[40%] max-w-[180px] aspect-[9/18] bg-white rounded-[30px] shadow-xl overflow-hidden border-8 border-gray-800 opacity-75 rotate-[15deg]">
         <Image
-          src="https://images.pexels.com/photos/8370784/pexels-photo-8370784.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src="/Verified.png"
           alt="Wrashpay App Screenshot"
           fill
           className="object-cover"

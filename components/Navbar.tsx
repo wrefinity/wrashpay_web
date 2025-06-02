@@ -62,21 +62,31 @@ const Navbar = () => {
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              animate={{ filter: theme === 'dark' ? 'brightness(0.85)' : 'brightness(1)' }}
-              transition={{ duration: 0.4 }}
-            >
-              <Image
-                src="/logo (1).png"
-                alt="Wrashpay Logo"
-                width={150}
-                height={40}
-                className="h-8 sm:h-10 w-auto"
-                priority
-              />
-            </motion.div>
-          </Link>
+  <motion.div
+    whileHover={{ scale: 1.1 }}
+    transition={{ duration: 0.4 }}
+    className="relative w-[150px] h-[40px]"
+  >
+    {theme === 'dark' ? (
+      <Image
+        src="/LOGO (2).png" // <-- Add your dark logo here
+        alt="Wrashpay Dark Logo"
+        fill
+        className="object-contain"
+        priority
+      />
+    ) : (
+      <Image
+        src="/logo (1).png" // <-- Existing light logo
+        alt="Wrashpay Logo"
+        fill
+        className="object-contain"
+        priority
+      />
+    )}
+  </motion.div>
+</Link>
+
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">

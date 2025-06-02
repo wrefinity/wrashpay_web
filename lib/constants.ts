@@ -9,6 +9,7 @@ export const MAIN_NAVIGATION = [
   { name: 'Business', href: '/business' },
   { name: 'About', href: '/about' },
   { name: 'Blog', href: '/blog' },
+  { name: 'faqs', href: '/faq' }
 ];
 
 export const SERVICES = [
@@ -36,27 +37,27 @@ export const SERVICES = [
 export const PARTNERS = [
   {
     name: 'MTN',
-    logo: 'https://images.pexels.com/photos/2988232/pexels-photo-2988232.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    logo: '/mtn.png',
   },
   {
     name: 'Airtel',
-    logo: 'https://images.pexels.com/photos/2977565/pexels-photo-2977565.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    logo: '/airtel.jpeg',
   },
   {
     name: 'Glo',
-    logo: 'https://images.pexels.com/photos/2977547/pexels-photo-2977547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    logo: '/glo.jpeg',
   },
   {
     name: '9mobile',
-    logo: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    logo: '/9mobile.png',
   },
   {
     name: 'DSTV',
-    logo: 'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    logo: '/dstv.jpeg',
   },
   {
     name: 'GOTV',
-    logo: 'https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    logo: '/gotv.png',
   },
 ];
 
