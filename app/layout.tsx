@@ -11,8 +11,14 @@ export const metadata: Metadata = {
   title: 'Wrashpay - Seamless Digital Payments in Nigeria',
   description:
     'Pay bills, buy airtime, data subscriptions, TV subscriptions and more with Wrashpay. Your one-stop solution for all digital payments in Nigeria.',
-};
 
+ icons: {
+    icon: '/LOGO (3).png',
+    shortcut: '/LOGO (3).png',
+    apple: '/LOGO (3).png',
+  },
+  manifest: '/site.webmanifest',
+};
 export default function RootLayout({
   children,
 }: {
