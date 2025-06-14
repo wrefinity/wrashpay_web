@@ -11,6 +11,9 @@ import {
 } from 'lucide-react';
 import { staggerContainer, fadeIn, buttonHover } from '@/lib/animations';
 import { SlideIn, FadeIn } from '@/components/ui/motion';
+import CountUp from 'react-countup';
+import { Download, Building } from 'lucide-react';
+
 
 const iconMap = {
   'signal': Signal,
@@ -71,22 +74,65 @@ const ServiceSection = () => {
           })}
         </motion.div>
 
-        {/* CTA Banner */}
-        <FadeIn delay={0.2} className="mt-16">
-          <div className="bg-gradient-to-r from-primary to-primary/90 rounded-xl p-8 text-white text-center">
-            <h3 className="text-2xl font-bold mb-4">Ready to get started?</h3>
-            <p className="max-w-2xl mx-auto mb-6">
-              Download the Wrashpay app now and experience the convenience of digital payments.
-            </p>
-            <motion.a
-              href="#download"
-              whileHover={buttonHover}
-              className="inline-block bg-white text-primary font-medium rounded-md px-6 py-3"
-            >
-              Download Now
-            </motion.a>
-          </div>
-        </FadeIn>
+      {/* CTA Banner */}
+<FadeIn delay={0.2} className="mt-16 relative">
+  <div className="bg-gradient-to-r from-primary to-primary/90 rounded-xl p-8 text-white text-center relative overflow-hidden">
+
+    {/* Left Stat: App Downloads */}
+    <motion.div
+      initial={{ opacity: 0, y: -10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.6 }}
+      className="absolute top-4 left-6 bg-white dark:bg-gray-800 text-primary dark:text-primary rounded-lg shadow-md px-4 py-3 w-48 flex items-center space-x-3"
+    >
+      <div className="bg-primary/10 dark:bg-primary/20 p-2 rounded-full">
+        <Download size={20} />
+      </div>
+      <div>
+        <p className="text-xs text-gray-600 dark:text-gray-300">App Downloads</p>
+        <h4 className="text-lg font-bold">
+          <CountUp end={10000} duration={2} separator="," />+
+        </h4>
+      </div>
+    </motion.div>
+
+    {/* Right Stat: Business Partners */}
+    <motion.div
+      initial={{ opacity: 0, y: -10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      className="absolute top-4 right-6 bg-white dark:bg-gray-800 text-primary dark:text-primary rounded-lg shadow-md px-4 py-3 w-48 flex items-center space-x-3 justify-end text-right"
+    >
+      <div>
+        <p className="text-xs text-gray-600 dark:text-gray-300">Business Partners</p>
+        <h4 className="text-lg font-bold">
+          <CountUp end={500} duration={2} />+
+        </h4>
+      </div>
+      <div className="bg-primary/10 dark:bg-primary/20 p-2 rounded-full">
+        <Building size={20} />
+      </div>
+    </motion.div>
+
+    {/* CTA Content */}
+    <h3 className="text-2xl font-bold mb-4">Ready to get started?</h3>
+    <p className="max-w-2xl mx-auto mb-6">
+      Download the Wrashpay app now and experience the convenience of digital payments.
+    </p>
+    <motion.a
+      href="#download"
+      whileHover={buttonHover}
+      className="inline-block bg-white text-primary font-medium rounded-md px-6 py-3"
+    >
+      Download Now
+    </motion.a>
+  </div>
+</FadeIn>
+
+
+
       </div>
     </section>
   );

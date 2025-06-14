@@ -6,6 +6,8 @@ import { motion } from 'framer-motion';
 import { Building, CheckCircle, ArrowRight } from 'lucide-react';
 import { buttonHover } from '@/lib/animations';
 import { SlideIn, FadeIn } from '@/components/ui/motion';
+import CountUp from 'react-countup';
+
 
 const BusinessSection = () => {
   return (
@@ -33,7 +35,10 @@ const BusinessSection = () => {
                     <Building className="text-primary" size={24} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-2xl text-gray-900 dark:text-white">500+</h4>
+                    <h4 className="font-bold text-2xl text-gray-900 dark:text-white">
+                         <CountUp end={500} duration={3} />+
+                    </h4>
+
                     <p className="text-gray-600 dark:text-gray-400 text-sm">Business Partners</p>
                   </div>
                 </div>
